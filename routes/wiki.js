@@ -3,7 +3,7 @@ const router = express.Router();
 const main = require("../views/main");
 const models = require('../models');
 //const addPost = require("../views/addPost.js")
-
+const addPage = require("../views/addPage");
 
 router.get("/", async (req, res, next) => {
   try {
@@ -14,8 +14,13 @@ router.get("/", async (req, res, next) => {
 });
 
 router.get("/add", (req, res) => {
-  res.send("adding");
+  res.send(addPage());
 });
+
+router.get("/:page", (req, res) => {
+  res.redirect("/wiki");
+}); 
+
 
 
 router.post("/", (req, res) => {
